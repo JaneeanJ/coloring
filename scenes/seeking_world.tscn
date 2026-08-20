@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b7r0o1e52tog4"]
+
+[ext_resource type="Script" uid="uid://bgjlheoqslsyi" path="res://world.gd" id="1_w15op"]
+
+[node name="SeekingWorld" type="Node3D" unique_id=1464560560]
+script = ExtResource("1_w15op")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1277296231]
