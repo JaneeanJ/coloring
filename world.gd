@@ -138,7 +138,7 @@ func create_behavior():
 
 	var behavior = Node.new()
 	behavior.name = "BehaviorRecognizer"
-	behavior.set_script(load("res://behavior.gd"))
+	behavior.set_script(load("res://behavior.gd"))  # core/ 暂留根目录
 	add_child(behavior)
 
 
@@ -151,7 +151,7 @@ func create_costume_manager():
 
 	var mgr = Node.new()
 	mgr.name = "CostumeManager"
-	mgr.set_script(load("res://costume_manager.gd"))
+	mgr.set_script(load("res://costume/costume_manager.gd"))
 	add_child(mgr)
 
 	# 连线：行为信号 + 掉落信号 + 一瞥结束信号
@@ -163,7 +163,7 @@ func create_costume_manager():
 	# 创建 UI 层并连接到 CostumeManager
 	var ui = CanvasLayer.new()
 	ui.name = "CostumeUI"
-	ui.set_script(load("res://costume_ui.gd"))
+	ui.set_script(load("res://costume/costume_ui.gd"))
 	add_child(ui)
 	mgr.costume_triggered.connect(ui.on_costume_triggered)
 	ui.sequence_started.connect(_on_costume_sequence_started)
@@ -173,7 +173,7 @@ func create_costume_manager():
 	if _player_skeleton:
 		var wardrobe = Node.new()
 		wardrobe.name = "CostumeWardrobe"
-		wardrobe.set_script(load("res://costume_wardrobe.gd"))
+		wardrobe.set_script(load("res://costume/costume_wardrobe.gd"))
 		add_child(wardrobe)
 		wardrobe.setup(_player_skeleton)
 		mgr.costume_triggered.connect(wardrobe.on_costume_triggered)
@@ -341,7 +341,7 @@ func create_player():
 
 
 	# 玩家脚本
-	player.set_script(load("res://player.gd"))
+	player.set_script(load("res://player.gd"))  # core/ 暂留根目录
 
 	player.add_to_group("player")
 
@@ -999,7 +999,7 @@ func _create_path() -> void:
 func _create_connection() -> void:
 	var connection := Node3D.new()
 	connection.name = "Connection"
-	connection.set_script(load("res://connection.gd"))
+	connection.set_script(load("res://forces/connection.gd"))
 	connection.position = CONNECTION_CENTER
 	add_child(connection)
 	_connection_root = connection
@@ -1008,7 +1008,7 @@ func _create_connection() -> void:
 func _create_eros() -> void:
 	var eros := Node3D.new()
 	eros.name = "Eros"
-	eros.set_script(load("res://eros.gd"))
+	eros.set_script(load("res://forces/eros.gd"))
 	eros.position = EROS_CENTER
 	add_child(eros)
 	_eros_root = eros
@@ -1017,7 +1017,7 @@ func _create_eros() -> void:
 func _create_identity() -> void:
 	var identity := Node3D.new()
 	identity.name = "Identity"
-	identity.set_script(load("res://identity.gd"))
+	identity.set_script(load("res://forces/identity.gd"))
 	identity.position = IDENTITY_CENTER
 	add_child(identity)
 	_identity_root = identity
@@ -1026,7 +1026,7 @@ func _create_identity() -> void:
 func _create_order() -> void:
 	var order := Node3D.new()
 	order.name = "Order"
-	order.set_script(load("res://force_05_order.gd"))
+	order.set_script(load("res://forces/force_05_order.gd"))
 	order.position = ORDER_CENTER
 	add_child(order)
 	_order_root = order
@@ -1035,7 +1035,7 @@ func _create_order() -> void:
 func _create_creation() -> void:
 	var creation := Node3D.new()
 	creation.name = "Creation"
-	creation.set_script(load("res://force_06_creation.gd"))
+	creation.set_script(load("res://forces/force_06_creation.gd"))
 	creation.position = CREATION_CENTER
 	add_child(creation)
 	_creation_root = creation
@@ -1044,7 +1044,7 @@ func _create_creation() -> void:
 func _create_constants() -> void:
 	var constants := Node3D.new()
 	constants.name = "Constants"
-	constants.set_script(load("res://force_07_constants.gd"))
+	constants.set_script(load("res://forces/force_07_constants.gd"))
 	constants.position = CONSTANTS_CENTER
 	add_child(constants)
 	_constants_root = constants
@@ -1053,7 +1053,7 @@ func _create_constants() -> void:
 func _create_variables() -> void:
 	var variables := Node3D.new()
 	variables.name = "Variables"
-	variables.set_script(load("res://force_08_variables.gd"))
+	variables.set_script(load("res://forces/force_08_variables.gd"))
 	variables.position = VARIABLES_CENTER
 	add_child(variables)
 	_variables_root = variables

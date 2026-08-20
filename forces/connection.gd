@@ -749,7 +749,7 @@ func _create_ending_ui() -> void:
 	]
 
 	# 步骤 7-1：为每个工具附加拖拽脚本
-	var dragger_script := load("res://draggable_tool.gd")
+	var dragger_script := load("res://ui/draggable_tool.gd")
 
 	for i in 3:
 		var ctrl: Control = builders[i].call()
@@ -859,7 +859,7 @@ func _create_drop_zone() -> void:
 	dz.size               = DROP_ZONE_SIZE
 	dz.z_index            = -1                         # 工具层下方
 	dz.mouse_filter       = Control.MOUSE_FILTER_STOP
-	dz.set_script(load("res://drop_zone.gd"))
+	dz.set_script(load("res://ui/drop_zone.gd"))
 	dz.visible = false                                 # WALKING 阶段隐藏，_enter_still 时显示
 	_ending_ui.add_child(dz)
 	dz.set_connection(self)                            # 绑定回调目标（步骤 7-2 起生效）

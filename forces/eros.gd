@@ -1126,7 +1126,7 @@ func _turn_toward_sea() -> void:
 # =============================================================
 
 func _setup_dye_system() -> void:
-	var ds := load("res://dye_system.gd")
+	var ds := load("res://costume/dye_system.gd")
 	if ds == null:
 		push_warning("[eros] dye_system.gd 加载失败")
 		return
